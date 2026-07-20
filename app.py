@@ -35,13 +35,13 @@ with tab_dcf:
     st.subheader("Discounted-cash-flow intrinsic value")
     c1, c2, c3, c4 = st.columns(4)
     ticker = c1.text_input("Ticker", "AAPL").upper().strip()
-    growth = c2.slider("FCF growth", 0.0, 0.20, 0.08, 0.005, format="%.3f")
-    wacc = c3.slider("WACC (discount rate)", 0.05, 0.15, 0.09, 0.005, format="%.3f")
-    terminal = c4.slider("Terminal growth", 0.00, 0.04, 0.025, 0.005, format="%.3f")
+    growth = c2.slider("FCF growth (%/yr)", 0.0, 20.0, 8.0, 0.5, format="%.1f%%")
+    wacc = c3.slider("WACC / discount rate (%)", 5.0, 15.0, 9.0, 0.5, format="%.1f%%")
+    terminal = c4.slider("Terminal growth (%)", 0.0, 4.0, 2.5, 0.5, format="%.1f%%")
     if st.button("Value it", type="primary"):
         with st.spinner(f"Fetching {ticker} and running the DCF…"):
-            out = run_cli(["dcf.py", ticker, "--growth", str(growth),
-                           "--wacc", str(wacc), "--terminal", str(terminal)])
+            out = run_cli(["dcf.py", ticker, "--growth", str(growth / 100),
+                           "--wacc", str(wacc / 100), "--terminal", str(terminal / 100)])
         st.code(out or "No output.", language="text")
         st.info("The sensitivity grid matters more than the point estimate — the fair value swings a lot with WACC and terminal growth.")
 
