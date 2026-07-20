@@ -4,7 +4,7 @@ A Python toolkit for **equity valuation and portfolio risk analysis on live mark
 
 Built to answer one question with real models instead of guesswork: *is this stock worth buying, and is this portfolio well-built?*
 
-![CI](https://github.com/USERNAME/equity-toolkit/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/iankaroly/equity-toolkit/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -28,7 +28,7 @@ All market data is pulled live from Yahoo Finance via `yfinance`. Every model al
 ## Quickstart
 
 ```bash
-git clone https://github.com/USERNAME/equity-toolkit.git
+git clone https://github.com/iankaroly/equity-toolkit.git
 cd equity-toolkit
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
