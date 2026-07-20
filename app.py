@@ -16,7 +16,7 @@ from contextlib import redirect_stdout
 import pandas as pd
 import streamlit as st
 
-st.set_page_config(page_title="Equity Toolkit", page_icon="📈", layout="wide")
+st.set_page_config(page_title="Equity Toolkit", layout="wide")
 
 # Hide Streamlit's default chrome ("Made with Streamlit" footer + hamburger menu).
 st.markdown(
@@ -31,10 +31,10 @@ def run_cli(args):
     return (res.stdout or "") + (res.stderr or "")
 
 
-st.title("📈 Equity Valuation & Portfolio Toolkit")
+st.title("Equity Valuation & Portfolio Toolkit")
 st.caption("DCF valuation, portfolio risk, and macro — on live market data.")
 
-tab_dcf, tab_port, tab_macro = st.tabs(["💰 Stock Valuation (DCF)", "📊 Portfolio Analysis", "🌍 Macro"])
+tab_dcf, tab_port, tab_macro = st.tabs(["Stock Valuation (DCF)", "Portfolio Analysis", "Macro"])
 
 # ---------------- DCF ----------------
 with tab_dcf:
