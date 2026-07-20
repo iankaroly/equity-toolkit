@@ -18,6 +18,12 @@ import streamlit as st
 
 st.set_page_config(page_title="Equity Toolkit", page_icon="📈", layout="wide")
 
+# Hide Streamlit's default chrome ("Made with Streamlit" footer + hamburger menu).
+st.markdown(
+    "<style>#MainMenu {visibility: hidden;} footer {visibility: hidden;}</style>",
+    unsafe_allow_html=True,
+)
+
 
 def run_cli(args):
     """Run one of the toolkit scripts and capture its text report."""
@@ -26,7 +32,7 @@ def run_cli(args):
 
 
 st.title("📈 Equity Valuation & Portfolio Toolkit")
-st.caption("DCF valuation, portfolio risk, and macro — on live market data. Educational tool, not financial advice.")
+st.caption("DCF valuation, portfolio risk, and macro — on live market data.")
 
 tab_dcf, tab_port, tab_macro = st.tabs(["💰 Stock Valuation (DCF)", "📊 Portfolio Analysis", "🌍 Macro"])
 
@@ -101,6 +107,3 @@ with tab_macro:
         st.code(out or "No output.", language="text")
     else:
         st.caption("Click to pull the current rates / curve / VIX / commodities snapshot.")
-
-st.divider()
-st.caption("Built with Python, pandas, NumPy, SciPy, yfinance & Streamlit. Educational only — not financial advice.")
